@@ -1,30 +1,25 @@
-<p align="center">
-  <img src="assets/aads-hero.svg" alt="Automotive Anomaly Detection System hero graphic" width="100%" />
-</p>
+# Automotive Anomaly Detection System
 
-<p align="center">
-  <a href="https://github.com/Sai-Srinivas-P/AUTOMOTIVE-ANOMALY-DETECTION-SYSTEM">
-    <img src="https://img.shields.io/badge/status-research%20prototype-0f172a?style=for-the-badge&logo=github" alt="Research prototype" />
-  </a>
-  <img src="https://img.shields.io/badge/python-3.x-0f172a?style=for-the-badge&logo=python" alt="Python 3.x" />
-  <img src="https://img.shields.io/badge/scikit--learn-ML-0f172a?style=for-the-badge&logo=scikit-learn" alt="scikit-learn" />
-  <img src="https://img.shields.io/badge/Jupyter-notebooks-0f172a?style=for-the-badge&logo=jupyter" alt="Jupyter notebooks" />
-  <img src="https://img.shields.io/badge/license-MIT-0f172a?style=for-the-badge" alt="MIT License" />
-</p>
+> **🔬 ML EXPERIMENT LAB**
+>
+> Notebook-driven anomaly classification for automotive CAN-style telemetry.
+>
+> This documentation is deliberately styled as an **experiment log**, not a product landing page. It focuses on the dataset, model bench, notebook workflow, and limits of the current research prototype.
 
-<h1 align="center">Automotive Anomaly Detection System</h1>
+<table>
+<tr>
+<td><strong>ENTRY POINT</strong><br/><code>IntelligentModel.ipynb</code></td>
+<td><strong>MODEL BENCH</strong><br/>KNN · Tree · RBF SVM</td>
+<td><strong>DATA</strong><br/>1,048,575 rows</td>
+<td><strong>STATUS</strong><br/>Research prototype</td>
+</tr>
+</table>
 
-<p align="center">
-  A notebook-driven machine-learning workbench for classifying anomalous automotive telemetry and CAN-style tabular traffic.
-</p>
+<img src="assets/aads-hero.svg" alt="Automotive anomaly detection laboratory visualization" width="100%" />
 
-<p align="center">
-  <img src="assets/can-anomaly-pulse.svg" alt="Animated CAN anomaly pulse" width="100%" />
-</p>
+---
 
-> **What this repository actually contains:** a Tkinter-based desktop GUI inside `IntelligentModel.ipynb`, two Jupyter notebooks, a compressed labeled dataset, a small test file, a demo video, and an MIT license. The documentation below is intentionally aligned to the code and artifacts currently present in the repository.
-
-## ✦ What it does
+## 01 · Experiment notebook
 
 The primary notebook, `IntelligentModel.ipynb`, loads a CSV-style automotive telemetry dataset, fills missing values, label-encodes the CAN message `ID`, splits a training subset into train/test partitions, and exposes several classifiers through a Tkinter GUI.
 
