@@ -1,106 +1,250 @@
-# 🚗 AUTOMOTIVE-ANOMALY-DETECTION-SYSTEM
+<p align="center">
+  <img src="assets/aads-hero.svg" alt="Automotive Anomaly Detection System hero graphic" width="100%" />
+</p>
 
-## 🌟 Project Overview
-With the increasing integration of technology in modern **Electric Vehicles (EVs)**, cybersecurity threats targeting **intra-vehicle communication** have risen significantly. This project implements a **Real-Time Anomaly and Intrusion Detection System** powered by **Artificial Intelligence (AI)** to safeguard **Controller Area Network (CAN) bus communication** from cyberattacks. By leveraging **Machine Learning (ML) algorithms** and an **optimized Support Vector Machine (SVM) model enhanced with Social Spider Optimization (SSO)**, this system ensures real-time monitoring, threat detection, and proactive security measures.
+<p align="center">
+  <a href="https://github.com/Sai-Srinivas-P/AUTOMOTIVE-ANOMALY-DETECTION-SYSTEM">
+    <img src="https://img.shields.io/badge/status-research%20prototype-0f172a?style=for-the-badge&logo=github" alt="Research prototype" />
+  </a>
+  <img src="https://img.shields.io/badge/python-3.x-0f172a?style=for-the-badge&logo=python" alt="Python 3.x" />
+  <img src="https://img.shields.io/badge/scikit--learn-ML-0f172a?style=for-the-badge&logo=scikit-learn" alt="scikit-learn" />
+  <img src="https://img.shields.io/badge/Jupyter-notebooks-0f172a?style=for-the-badge&logo=jupyter" alt="Jupyter notebooks" />
+  <img src="https://img.shields.io/badge/license-MIT-0f172a?style=for-the-badge" alt="MIT License" />
+</p>
 
-## 🔥 Key Features
-✔ **AI-Powered Threat Detection** – Uses **SVM and SSO** for real-time anomaly identification.
-✔ **Intrusion Prevention System (IPS)** – Detects and mitigates **Denial-of-Service (DoS)** and data spoofing attacks.
-✔ **Real-Time Monitoring** – Continuously analyzes CAN bus traffic for suspicious activity.
-✔ **Lightweight Deployment** – Optimized for **embedded automotive hardware**.
-✔ **Adaptive Security Model** – Self-learning algorithms to combat evolving cyber threats.
+<h1 align="center">Automotive Anomaly Detection System</h1>
 
-## 🏗️ Tech Stack
-- **Programming Languages:** Python
-- **Machine Learning Frameworks:** TensorFlow, Scikit-Learn, Keras
-- **Data Processing:** NumPy, Pandas, OpenCV
-- **Network Security:** Intrusion Detection Systems (IDS), CAN Bus Protocol
-- **Visualization & Logging:** Matplotlib, Seaborn, Grafana
+<p align="center">
+  A notebook-driven machine-learning workbench for classifying anomalous automotive telemetry and CAN-style tabular traffic.
+</p>
 
-## 🛠️ System Architecture
-The model operates in **three key stages**:
-1. **Data Collection & Preprocessing** – CAN bus messages are filtered, normalized, and structured.
-2. **Anomaly Detection & Intrusion Prevention** – The **optimized SVM model** powered by **SSO algorithm** detects unusual communication patterns and triggers security alerts.
-3. **Threat Mitigation & Learning** – The system **updates itself with new attack patterns**, improving over time.
+<p align="center">
+  <img src="assets/can-anomaly-pulse.svg" alt="Animated CAN anomaly pulse" width="100%" />
+</p>
 
-## 🚀 Installation & Setup
-### Prerequisites:
-- Install **Python 3.x** and required libraries
-- Install **CAN Bus simulation tools** (SocketCAN, CANalyzer, etc.)
-- Compatible **Embedded Hardware** (e.g., Raspberry Pi, Jetson Nano)
+> **What this repository actually contains:** a Tkinter-based desktop GUI inside `IntelligentModel.ipynb`, two Jupyter notebooks, a compressed labeled dataset, a small test file, a demo video, and an MIT license. The documentation below is intentionally aligned to the code and artifacts currently present in the repository.
 
-### Steps to Run the Project:
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Sai-Developer-1405/REAL_TIME_ANOMALY_AND_INTRUSION_DETECTION_FOR_SAFEGUARDING_INTRA_VEHICLE_COMMUNICATION_SYSTEM.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd REAL_TIME_ANOMALY_AND_INTRUSION_DETECTION_FOR_SAFEGUARDING_INTRA_VEHICLE_COMMUNICATION_SYSTEM
-   ```
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Run the anomaly detection system:**
-   ```bash
-   python main.py
-   ```
-5. **Monitor real-time vehicle data visualization.**
+## ✦ What it does
 
-## 📜 Machine Learning Model Details
-- **Supervised & Unsupervised Learning** – Detects both known and unknown attack patterns.
-- **Core Algorithms Used:**
-  - **Support Vector Machine (SVM) with Social Spider Optimization (SSO)**
-  - **Anomaly Detection Algorithms:** Autoencoders, Random Forest, LSTM-based Time Series Analysis.
-  - **Dimensionality Reduction with PCA (Principal Component Analysis).**
+The primary notebook, `IntelligentModel.ipynb`, loads a CSV-style automotive telemetry dataset, fills missing values, label-encodes the CAN message `ID`, splits a training subset into train/test partitions, and exposes several classifiers through a Tkinter GUI.
 
-## 🛡️ Security Enhancements
-🔹 **Prevention of Cyber Attacks:** Protects against **DoS, spoofing, and replay attacks**.
-🔹 **Adaptive Threat Intelligence:** Updates attack signatures for **future-proof security**.
-🔹 **Blockchain Integration (Future Scope):** Immutable logs for forensic analysis.
+The current workflow supports:
 
-## 📊 Performance Metrics
+- **K-Nearest Neighbors (KNN)** for baseline anomaly classification.
+- **Decision Tree** classification with a two-feature limit.
+- **RBF-kernel Support Vector Machine (SVM)** with `C=2.0`.
+- **GeneticSelectionCV + SVM** as the experimental feature-selection path exposed by the GUI's **"SSO with SVM"** button.
+- A plotting view for comparing the classifiers' hit/correct-rejection/miss/false-alarm values.
+- Batch prediction on a selected test CSV, where `0` is displayed as **No Anomaly Detected** and `1` as **Anomaly Detected**.
 
-📌 **Detection Performance**
-> 🚀 Achieves **high accuracy** with ultra-fast detection speeds, ensuring **real-time security** for vehicle communication.
+The secondary `test.ipynb` is an experimentation notebook. It imports `SwarmPackagePy` and exercises a swarm/spider-style path, while also containing commented-out classifier experiments.
 
-| 🔹 **Metric**           | 🔹 **Value** |
-|------------------------|-------------|
-| 🎯 **Accuracy**        | **95%**     |
-| ⚠️ **False Positive Rate** | **<2%**  |
-| ⚡ **Detection Speed**  | **<10ms**   |
+## ◈ Pipeline
 
-📌 **Model Comparison**
-> 📊 Evaluating different models for **optimal performance** in anomaly detection.
+<img src="assets/detection-pipeline.svg" alt="Repository workflow diagram" width="100%" />
 
-| 🔹 **Model**                | 🎯 **Accuracy** | ⚠️ **False Positives** |
-|----------------------------|---------------|------------------|
-| 🔹 Traditional SVM          | 85%           | 8%               |
-| 🔹 SVM with Optimization    | 90%           | 5%               |
-| 🔹 **SSO-Optimized SVM**    | **95%**       | **<2%**          |
+### The data path
 
-## 🎯 Future Enhancements
-🔹 **Edge AI Deployment** – Run directly on **vehicle ECUs** for ultra-low latency.
-🔹 **Federated Learning** – Vehicles train models collaboratively for better security.
-🔹 **Blockchain Security** – Immutable logs for **tamper-proof security audits**.
-🔹 **Integration with IoT** – Real-time alerts for **fleet security monitoring**.
+```text
+compressed_data.csv.gz / test.txt
+            │
+            ▼
+       pandas.read_csv
+            │
+            ▼
+     missing-value fill
+            │
+            ▼
+       LabelEncoder(ID)
+            │
+            ▼
+       train_test_split
+            │
+     ┌──────┼─────────┬───────────────┐
+     ▼      ▼         ▼               ▼
+    KNN   Tree       RBF SVM   GeneticSelectionCV
+     │      │         │               │
+     └──────┴─────────┴───────────────┘
+                    │
+                    ▼
+             anomaly prediction
+```
 
-## 🤝 Contribution Guidelines
-1. **Fork the repository.**
-2. **Create a new branch:** `git checkout -b feature-branch`
-3. **Commit your changes:** `git commit -m 'Added new feature'`
-4. **Push to the branch:** `git push origin feature-branch`
-5. **Open a Pull Request.**
+### Important implementation detail
 
-## 📧 Contact
-For queries and collaborations, reach out at:
-- **GitHub:** [Sai-Developer-1405](https://github.com/Sai-Developer-1405)
-- **Email:** ping2saas145@gmail.com
+The code uses **`GeneticSelectionCV`** in the function named `SSO()`. It is not a clean, standalone Social Spider Optimization implementation. The experimental notebook also imports `SwarmPackagePy`, but that code is not connected to the GUI's final prediction path. This distinction matters before quoting the project as a production-grade SSO benchmark.
+
+## 📊 Bundled dataset
+
+<img src="assets/dataset-overview.svg" alt="Dataset statistics graphic" width="100%" />
+
+`compressed_data.csv.gz` contains **1,048,575 rows** and **7 columns**:
+
+| Column | Meaning in the repository | Notes |
+|---|---|---|
+| `Label` | Target class | `0` = normal, `1` = anomaly |
+| `Time` | Event timestamp/value | Floating-point numeric field |
+| `ID` | Message identifier | 10 unique IDs (`id1` … `id10`) |
+| `Signal1_of_ID` | Signal value | Numeric |
+| `Signal2_of_ID` | Signal value | Contains missing values |
+| `Signal3_of_ID` | Signal value | Heavily sparse |
+| `Signal4_of_ID` | Signal value | Very heavily sparse |
+
+Observed class balance in the bundled file:
+
+- **730,048 normal samples** (`69.62%`)
+- **318,527 anomaly samples** (`30.38%`)
+
+The training routines in `IntelligentModel.ipynb` intentionally read only the **first 14,000 rows** of the selected training CSV (`nrows=14000`). Missing values are then replaced with `0`.
+
+## 🧠 Model workbench
+
+| Model | Current implementation | Role |
+|---|---|---|
+| KNN | `KNeighborsClassifier()` | Baseline classifier |
+| Decision Tree | `DecisionTreeClassifier(max_features=2)` | Lightweight tree baseline |
+| SVM | `svm.SVC(C=2.0, gamma='scale', kernel='rbf')` | Main classical ML baseline |
+| Genetic selection | `GeneticSelectionCV(SVC(...))` | Experimental feature-selection path |
+| Swarm experiment | `SwarmPackagePy.ssa(...)` in `test.ipynb` | Separate research experiment |
+
+### About the metrics
+
+The GUI labels the returned values as **Hit Rate (HR)**, **Correct Rejection Rate (CR)**, **Miss Rate (MR)**, and **False Alarm Rate (FR)**. The current notebook derives some of those values from `accuracy_score`, `precision_score`, and a confusion matrix.
+
+**Do not treat the old README's `95% accuracy`, `<2% false-positive rate`, or `<10 ms` latency figures as verified benchmarks.** Those figures are not supported by the current repository artifacts, and the experimental `SSO()` metric block contains mistakes that should be corrected before publishing benchmark claims.
+
+## 🖥️ Demo / GUI
+
+`IntelligentModel.ipynb` builds a Tkinter interface with buttons for dataset loading, each classifier, graphing, and test-file prediction.
+
+<a href="MINI_VIDEO.mp4">
+  <img src="assets/demo-preview.svg" alt="Demo preview for MINI_VIDEO.mp4" width="100%" />
+</a>
+
+**Open the preview above to jump to the bundled `MINI_VIDEO.mp4` demo.**
+
+## 🚀 Quick start
+
+This repository currently does **not** contain a `requirements.txt` or `main.py`; the practical entry point is the Jupyter notebook.
+
+### 1. Clone
+
+```bash
+git clone https://github.com/Sai-Srinivas-P/AUTOMOTIVE-ANOMALY-DETECTION-SYSTEM.git
+cd AUTOMOTIVE-ANOMALY-DETECTION-SYSTEM
+```
+
+### 2. Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it with your platform's normal command, then install the notebook dependencies:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install numpy pandas matplotlib scikit-learn genetic-selection SwarmPackagePy jupyter
+```
+
+> On Linux distributions where Tkinter is packaged separately, install the OS package that provides `python3-tk` before launching the GUI.
+
+### 3. Launch the primary notebook
+
+```bash
+jupyter notebook IntelligentModel.ipynb
+```
+
+Then use **Upload CAN Bus Dataset** to select `compressed_data.csv.gz` or another compatible CSV file.
+
+### 4. Try the included test data
+
+`test.txt` is a small inference-style sample containing `Time`, `ID`, and four signal columns. The notebook's prediction workflow expects a compatible CSV layout and label-encodes `ID` before prediction.
+
+### 5. Explore the swarm experiment
+
+```bash
+jupyter notebook test.ipynb
+```
+
+This notebook is exploratory rather than a polished application entry point.
+
+## 📁 Repository map
+
+```text
+AUTOMOTIVE-ANOMALY-DETECTION-SYSTEM/
+├── IntelligentModel.ipynb      # Main Tkinter + ML workbench
+├── test.ipynb                  # Swarm / classifier experiments
+├── compressed_data.csv.gz      # Bundled labeled dataset
+├── test.txt                    # Small test/inference sample
+├── MINI_VIDEO.mp4              # Demo recording
+├── assets/
+│   ├── aads-hero.svg
+│   ├── can-anomaly-pulse.svg
+│   ├── dataset-overview.svg
+│   ├── detection-pipeline.svg
+│   └── demo-preview.svg
+├── LICENSE
+└── README.md
+```
+
+## 🔎 Data preparation used by the notebooks
+
+The main notebook follows a compact preprocessing path:
+
+1. Read the selected CSV with pandas.
+2. Keep the first 14,000 rows for classifier training.
+3. Replace missing numeric values with `0`.
+4. Encode `ID` with `LabelEncoder`.
+5. Select the model-specific feature slice.
+6. Split into train/test sets with `test_size=0.2` and `random_state=0`.
+7. Fit the selected classifier and predict the held-out rows.
+
+That is useful for experimentation, but it is **not yet a production CAN intrusion-detection stack**: there is no live CAN socket integration, streaming ingestion layer, model persistence, service/API boundary, test suite, packaging metadata, or deployment configuration in the repository today.
+
+## ⚠️ Current limitations
+
+A README should tell the truth before it tells a story. The current implementation has several research-prototype constraints:
+
+- The GUI is embedded inside a notebook and uses Tkinter, which makes automated deployment awkward.
+- There is no dependency lockfile or `requirements.txt`.
+- The training code uses only the first 14,000 rows, even though the bundled dataset is much larger.
+- The function named `SSO()` uses `GeneticSelectionCV`, and its current metric calculations are not suitable for reporting final benchmark scores.
+- The `SSO()` function also contains a typo in the confusion-matrix call (`rave` instead of `ravel`).
+- Missing values are replaced with `0` without a learned imputation strategy.
+- There is no model serialization or reproducible inference service.
+- The repository contains research/demo artifacts rather than a hardened ECU/edge deployment.
+
+## 🛣️ Sensible next steps
+
+A cleaner evolution path would be:
+
+**notebook prototype → reproducible training script → saved model → real-time CAN ingestion → calibrated anomaly scoring → automated tests → deployable edge service**
+
+The highest-value refactor is to move the model logic out of Tkinter/Jupyter and into importable Python modules with explicit data contracts and unit tests. That would make the anomaly detector measurable, reproducible, and much easier to deploy.
+
+## 🤝 Contributing
+
+Pull requests are welcome for improvements to the model pipeline, preprocessing, reproducibility, documentation, testing, and deployment structure.
+
+A useful contribution should ideally include:
+
+- a focused change;
+- a reproducible test or notebook result;
+- updated documentation when behavior changes;
+- no unverified performance claims.
 
 ## 📜 License
-This project is licensed under the **MIT License**.
+
+This repository is released under the **MIT License**. See [`LICENSE`](LICENSE).
+
+## 👤 Author
+
+**Sai-Srinivas-P**  
+GitHub: <https://github.com/Sai-Srinivas-P>
 
 ---
-💡 *If you found this project useful, give it a ⭐ on GitHub!* 🚀
 
+<p align="center">
+  <sub>Designed around the code, notebooks, dataset, and demo artifacts currently present in this repository.</sub>
+</p>
